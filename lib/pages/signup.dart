@@ -183,8 +183,11 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
     );
 
     return Scaffold(
+      
       backgroundColor: Colors.white,
       appBar: AppBar(
+        title: const Text("Control App"),
+        centerTitle: true,
         backgroundColor: Colors.transparent,
         elevation: 0,
         leading: IconButton(

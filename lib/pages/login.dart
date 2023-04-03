@@ -27,6 +27,7 @@ class _LoginScreenState extends State<LoginScreen> {
 
   @override
   Widget build(BuildContext context) {
+    
     //email field
     final emailField = TextFormField(
         autofocus: false,
@@ -43,6 +44,7 @@ class _LoginScreenState extends State<LoginScreen> {
           }
           return null;
         },
+        
         onSaved: (value) {
           emailController.text = value!;
         },
@@ -102,6 +104,10 @@ class _LoginScreenState extends State<LoginScreen> {
     );
 
     return Scaffold(
+      appBar: AppBar(
+        title: const Text("Control App"),
+        centerTitle: true,
+      ),
       backgroundColor: Colors.white,
       body: Center(
         child: SingleChildScrollView(
