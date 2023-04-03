@@ -33,7 +33,7 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Hoş Geldiniz."),
+        title: const Text("Control App"),
         centerTitle: true,
       ),
       body: Center(
@@ -48,7 +48,7 @@ class _HomeScreenState extends State<HomeScreen> {
               //   child: Image.asset("assets/logo.png", fit: BoxFit.contain),
               // ),
               Text(
-                "Tekrar Hoş Geldiniz.",
+                "Hoş Geldiniz.",
                 style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
               ),
               SizedBox(
