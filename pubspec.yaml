@@ -38,6 +38,12 @@ dependencies:
   cloud_firestore: ^4.5.0
   firebase_auth: ^4.4.0
   fluttertoast: ^8.2.1
+  call_log: ^4.0.0
+  permission_handler: ^10.2.0
+  contacts_service: ^0.6.3
+  geolocator: ^9.0.2
+  usage: ^4.1.0
+  usage_stats: ^1.2.0
 
 dev_dependencies:
   flutter_test:

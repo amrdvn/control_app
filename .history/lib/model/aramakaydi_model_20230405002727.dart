@@ -1,0 +1,40 @@
+class CallLogModel {
+  String number;
+  int duration;
+  int timestamp;
+  String date;
+
+  CallLogModel({
+    required this.number,
+    required this.duration,
+    required this.timestamp,
+    required this.date,
+  });
+}
+ static Future<List<CallLogModel>> getCallLogs() async {
+    Iterable<CallLogEntry> entries = await CallLog.get();
+    List<CallLogModel> callLogs = [];
+
+    entries.forEach((entry) {
+      String name = entry.name;
+      String number = entry.number;
+      String date = DateTime.fromMillisecondsSinceEpoch(entry.timestamp).toString();
+      String duration = entry.duration.toString();
+      CallType callType = entry.callType;
+
+      CallLogModel callLog = CallLogModel(
+        name: name,
+        number: number,
+        date: date,
+        duration: duration,
+        callType: callType,
+      );
+
+      callLogs.add(callLog);
+    });
+
+    return callLogs;
+  }
+}
+
+enum CallType { incoming, outgoing, missed, rejected }
