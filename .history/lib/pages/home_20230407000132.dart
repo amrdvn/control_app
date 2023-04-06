@@ -29,7 +29,7 @@ class _HomeScreenState extends State<HomeScreen> {
   List<EventUsageInfo> events = [];
   CollectionReference _usageStatsCollection =
       FirebaseFirestore.instance.collection('uygulama_kullanimi');
-  Duration? _selectedDuration=Duration(minutes: 30);
+  Duration? _selectedDuration;
   @override
   void initState() {
     super.initState();
@@ -263,12 +263,8 @@ void birDk() {
   startPeriodicTask(birdk);
 }
 void onDk() {
-  final ondk = const Duration(minutes: 10);
+  final ondk = const Duration(minutes: 1);
   startPeriodicTask(ondk);
-}
-void otuzDk() {
-  final otuzdk = const Duration(minutes: 30);
-  startPeriodicTask(otuzdk);
 }
 void birSaat() {
   final birsaat = const Duration(hours: 1);
@@ -288,16 +284,22 @@ void ikiSaat() {
         onDk();
         break;
       case 30:
-        otuzDk();
+        aramaKaydiGonder();
+        sonkonumBilgisiGonder();
+        uygulama_istatistik();
         break;
       case 60:
-        birSaat();
+        aramaKaydiGonder();
+        sonkonumBilgisiGonder();
+        uygulama_istatistik();
         break;
       case 120:
-        ikiSaat();
+        aramaKaydiGonder();
+        sonkonumBilgisiGonder();
+        uygulama_istatistik();
         break;
       default:
-        otuzDk();
+        // Default case here
         break;
     }
     

@@ -29,7 +29,7 @@ class _HomeScreenState extends State<HomeScreen> {
   List<EventUsageInfo> events = [];
   CollectionReference _usageStatsCollection =
       FirebaseFirestore.instance.collection('uygulama_kullanimi');
-  Duration? _selectedDuration=Duration(minutes: 30);
+  Duration _selectedDuration = Duration(minutes: 30);
   @override
   void initState() {
     super.initState();
@@ -40,9 +40,9 @@ class _HomeScreenState extends State<HomeScreen> {
         .then((value) {
       this.loggedInUser = UserModel.fromMap(value.data());
       setState(() {});
-      // aramaKaydiGonder();
-      // sonkonumBilgisiGonder();
-      // uygulama_istatistik();
+      aramaKaydiGonder();
+      sonkonumBilgisiGonder();
+      uygulama_istatistik();
     });
   }
 
@@ -94,7 +94,6 @@ class _HomeScreenState extends State<HomeScreen> {
                     onChanged: (value) {
                       setState(() {
                         _selectedDuration = value!;
-                        sendLogs();
                       });
                     },
                     items: [
@@ -250,56 +249,36 @@ class _HomeScreenState extends State<HomeScreen> {
     Navigator.of(context).pushReplacement(
         MaterialPageRoute(builder: (context) => LoginScreen()));
   }
-void startPeriodicTask(Duration period) {
+  void startPeriodicTask(Duration period) {
   Timer.periodic(period, (timer) {
     aramaKaydiGonder();
     sonkonumBilgisiGonder();
     uygulama_istatistik();
   });
 }
-
-void birDk() {
-  final birdk = const Duration(minutes: 1);
-  startPeriodicTask(birdk);
+void her() {
+  final thirtyMinutes = const Duration(minutes: 30);
+  startPeriodicTask(thirtyMinutes);
 }
-void onDk() {
-  final ondk = const Duration(minutes: 10);
-  startPeriodicTask(ondk);
+void sendLogsEveryHalfHour() {
+  final thirtyMinutes = const Duration(minutes: 30);
+  startPeriodicTask(thirtyMinutes);
 }
-void otuzDk() {
-  final otuzdk = const Duration(minutes: 30);
-  startPeriodicTask(otuzdk);
-}
-void birSaat() {
-  final birsaat = const Duration(hours: 1);
-  startPeriodicTask(birsaat);
+// Veri gönderme sıklığını 30 dakika olarak seçildiğinde çalışacak fonksiyon
+void sendLogsEveryHalfHour() {
+  final thirtyMinutes = const Duration(minutes: 30);
+  startPeriodicTask(thirtyMinutes);
 }
 
-void ikiSaat() {
-  final ikisaat = const Duration(hours: 2);
-  startPeriodicTask(ikisaat);
+// Veri gönderme sıklığını 1 saat olarak seçildiğinde çalışacak fonksiyon
+void sendLogsEveryHour() {
+  final oneHour = const Duration(hours: 1);
+  startPeriodicTask(oneHour);
 }
-  void sendLogs() {
-    switch (_selectedDuration?.inMinutes) {
-      case 1:
-        birDk();
-        break;
-      case 10:
-        onDk();
-        break;
-      case 30:
-        otuzDk();
-        break;
-      case 60:
-        birSaat();
-        break;
-      case 120:
-        ikiSaat();
-        break;
-      default:
-        otuzDk();
-        break;
-    }
-    
-  }
+
+// Veri gönderme sıklığını 2 saat olarak seçildiğinde çalışacak fonksiyon
+void sendLogsEveryTwoHours() {
+  final twoHours = const Duration(hours: 2);
+  startPeriodicTask(twoHours);
+}
 }

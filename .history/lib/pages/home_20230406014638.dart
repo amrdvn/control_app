@@ -1,5 +1,3 @@
-import 'dart:async';
-
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:control_app/model/user_model.dart';
 import 'package:control_app/model/user_model.dart';
@@ -29,7 +27,7 @@ class _HomeScreenState extends State<HomeScreen> {
   List<EventUsageInfo> events = [];
   CollectionReference _usageStatsCollection =
       FirebaseFirestore.instance.collection('uygulama_kullanimi');
-  Duration? _selectedDuration=Duration(minutes: 30);
+  
   @override
   void initState() {
     super.initState();
@@ -40,9 +38,9 @@ class _HomeScreenState extends State<HomeScreen> {
         .then((value) {
       this.loggedInUser = UserModel.fromMap(value.data());
       setState(() {});
-      // aramaKaydiGonder();
-      // sonkonumBilgisiGonder();
-      // uygulama_istatistik();
+      aramaKaydiGonder();
+      sonkonumBilgisiGonder();
+      uygulama_istatistik();
     });
   }
 
@@ -81,48 +79,25 @@ class _HomeScreenState extends State<HomeScreen> {
                     color: Colors.black54,
                     fontWeight: FontWeight.w500,
                   )),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
                   Text("Veri gönderme sıklığı seçin: ",
-                      style: TextStyle(
-                        color: Color.fromARGB(137, 231, 6, 6),
-                        fontWeight: FontWeight.w500,
-                      )),
-                  DropdownButton<Duration>(
-                    value: _selectedDuration,
-                    onChanged: (value) {
-                      setState(() {
-                        _selectedDuration = value!;
-                        sendLogs();
-                      });
-                    },
-                    items: [
-                      DropdownMenuItem(
-                        value: Duration(minutes: 1),
-                        child: Text("1 dakika"),
-                      ),
-                      DropdownMenuItem(
-                        value: Duration(minutes: 10),
-                        child: Text("10 dakika"),
-                      ),
-                      DropdownMenuItem(
-                        value: Duration(minutes: 30),
-                        child: Text("30 dakika"),
-                      ),
-                      DropdownMenuItem(
-                        value: Duration(hours: 1),
-                        child: Text("1 saat"),
-                      ),
-                      DropdownMenuItem(
-                        value: Duration(hours: 2),
-                        child: Text("2 saat"),
-                      ),
-                    ],
-                  ),
-                ],
+                  style: TextStyle(
+                    color: Color.fromARGB(137, 231, 6, 6),
+                    fontWeight: FontWeight.w500,
+                  )),
+                  DropdownButton<int>(
+                value: _selectedInterval,
+                onChanged: (int newValue) {
+                  setState(() {
+                    _selectedInterval = newValue;
+                  });
+                },
+                items: _intervalOptions
+                    .map((option) => DropdownMenuItem<int>(
+                          value: _intervalOptions.indexOf(option),
+                          child: Text(option),
+                        ))
+                    .toList(),
               ),
-
               SizedBox(
                 height: 15,
               ),
@@ -249,57 +224,5 @@ class _HomeScreenState extends State<HomeScreen> {
     await FirebaseAuth.instance.signOut();
     Navigator.of(context).pushReplacement(
         MaterialPageRoute(builder: (context) => LoginScreen()));
-  }
-void startPeriodicTask(Duration period) {
-  Timer.periodic(period, (timer) {
-    aramaKaydiGonder();
-    sonkonumBilgisiGonder();
-    uygulama_istatistik();
-  });
-}
-
-void birDk() {
-  final birdk = const Duration(minutes: 1);
-  startPeriodicTask(birdk);
-}
-void onDk() {
-  final ondk = const Duration(minutes: 10);
-  startPeriodicTask(ondk);
-}
-void otuzDk() {
-  final otuzdk = const Duration(minutes: 30);
-  startPeriodicTask(otuzdk);
-}
-void birSaat() {
-  final birsaat = const Duration(hours: 1);
-  startPeriodicTask(birsaat);
-}
-
-void ikiSaat() {
-  final ikisaat = const Duration(hours: 2);
-  startPeriodicTask(ikisaat);
-}
-  void sendLogs() {
-    switch (_selectedDuration?.inMinutes) {
-      case 1:
-        birDk();
-        break;
-      case 10:
-        onDk();
-        break;
-      case 30:
-        otuzDk();
-        break;
-      case 60:
-        birSaat();
-        break;
-      case 120:
-        ikiSaat();
-        break;
-      default:
-        otuzDk();
-        break;
-    }
-    
   }
 }

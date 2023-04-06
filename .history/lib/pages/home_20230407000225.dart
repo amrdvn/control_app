@@ -29,7 +29,7 @@ class _HomeScreenState extends State<HomeScreen> {
   List<EventUsageInfo> events = [];
   CollectionReference _usageStatsCollection =
       FirebaseFirestore.instance.collection('uygulama_kullanimi');
-  Duration? _selectedDuration=Duration(minutes: 30);
+  Duration? _selectedDuration;
   @override
   void initState() {
     super.initState();
@@ -294,10 +294,12 @@ void ikiSaat() {
         birSaat();
         break;
       case 120:
-        ikiSaat();
+        aramaKaydiGonder();
+        sonkonumBilgisiGonder();
+        uygulama_istatistik();
         break;
       default:
-        otuzDk();
+        // Default case here
         break;
     }
     

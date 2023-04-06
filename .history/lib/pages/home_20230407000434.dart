@@ -29,7 +29,7 @@ class _HomeScreenState extends State<HomeScreen> {
   List<EventUsageInfo> events = [];
   CollectionReference _usageStatsCollection =
       FirebaseFirestore.instance.collection('uygulama_kullanimi');
-  Duration? _selectedDuration=Duration(minutes: 30);
+  Duration? _selectedDurationDuration(minutes: 30);;
   @override
   void initState() {
     super.initState();

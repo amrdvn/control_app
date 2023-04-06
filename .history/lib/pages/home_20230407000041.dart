@@ -29,7 +29,7 @@ class _HomeScreenState extends State<HomeScreen> {
   List<EventUsageInfo> events = [];
   CollectionReference _usageStatsCollection =
       FirebaseFirestore.instance.collection('uygulama_kullanimi');
-  Duration? _selectedDuration=Duration(minutes: 30);
+  Duration? _selectedDuration;
   @override
   void initState() {
     super.initState();
@@ -258,26 +258,22 @@ void startPeriodicTask(Duration period) {
   });
 }
 
+// Veri gönderme sıklığını 30 dakika olarak seçildiğinde çalışacak fonksiyon
 void birDk() {
   final birdk = const Duration(minutes: 1);
   startPeriodicTask(birdk);
 }
-void onDk() {
-  final ondk = const Duration(minutes: 10);
-  startPeriodicTask(ondk);
-}
-void otuzDk() {
-  final otuzdk = const Duration(minutes: 30);
-  startPeriodicTask(otuzdk);
-}
+
+// Veri gönderme sıklığını 1 saat olarak seçildiğinde çalışacak fonksiyon
 void birSaat() {
   final birsaat = const Duration(hours: 1);
   startPeriodicTask(birsaat);
 }
 
-void ikiSaat() {
-  final ikisaat = const Duration(hours: 2);
-  startPeriodicTask(ikisaat);
+// Veri gönderme sıklığını 2 saat olarak seçildiğinde çalışacak fonksiyon
+void sendLogsEveryTwoHours() {
+  final twoHours = const Duration(hours: 2);
+  startPeriodicTask(twoHours);
 }
   void sendLogs() {
     switch (_selectedDuration?.inMinutes) {
@@ -285,19 +281,27 @@ void ikiSaat() {
         birDk();
         break;
       case 10:
-        onDk();
+        aramaKaydiGonder();
+        sonkonumBilgisiGonder();
+        uygulama_istatistik();
         break;
       case 30:
-        otuzDk();
+        aramaKaydiGonder();
+        sonkonumBilgisiGonder();
+        uygulama_istatistik();
         break;
       case 60:
-        birSaat();
+        aramaKaydiGonder();
+        sonkonumBilgisiGonder();
+        uygulama_istatistik();
         break;
       case 120:
-        ikiSaat();
+        aramaKaydiGonder();
+        sonkonumBilgisiGonder();
+        uygulama_istatistik();
         break;
       default:
-        otuzDk();
+        // Default case here
         break;
     }
     

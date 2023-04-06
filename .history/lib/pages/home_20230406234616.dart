@@ -29,7 +29,7 @@ class _HomeScreenState extends State<HomeScreen> {
   List<EventUsageInfo> events = [];
   CollectionReference _usageStatsCollection =
       FirebaseFirestore.instance.collection('uygulama_kullanimi');
-  Duration? _selectedDuration=Duration(minutes: 30);
+  Duration? _selectedDuration;
   @override
   void initState() {
     super.initState();
@@ -91,11 +91,11 @@ class _HomeScreenState extends State<HomeScreen> {
                       )),
                   DropdownButton<Duration>(
                     value: _selectedDuration,
-                    onChanged: (value) {
-                      setState(() {
-                        _selectedDuration = value!;
-                        sendLogs();
-                      });
+      onChanged: (value) {
+        setState(() {
+          _selectedDuration = value!;
+          sendLogs();
+        });
                     },
                     items: [
                       DropdownMenuItem(
@@ -119,6 +119,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         child: Text("2 saat"),
                       ),
                     ],
+                    
                   ),
                 ],
               ),
@@ -250,56 +251,36 @@ class _HomeScreenState extends State<HomeScreen> {
     Navigator.of(context).pushReplacement(
         MaterialPageRoute(builder: (context) => LoginScreen()));
   }
-void startPeriodicTask(Duration period) {
-  Timer.periodic(period, (timer) {
-    aramaKaydiGonder();
-    sonkonumBilgisiGonder();
-    uygulama_istatistik();
-  });
-}
-
-void birDk() {
-  final birdk = const Duration(minutes: 1);
-  startPeriodicTask(birdk);
-}
-void onDk() {
-  final ondk = const Duration(minutes: 10);
-  startPeriodicTask(ondk);
-}
-void otuzDk() {
-  final otuzdk = const Duration(minutes: 30);
-  startPeriodicTask(otuzdk);
-}
-void birSaat() {
-  final birsaat = const Duration(hours: 1);
-  startPeriodicTask(birsaat);
-}
-
-void ikiSaat() {
-  final ikisaat = const Duration(hours: 2);
-  startPeriodicTask(ikisaat);
-}
   void sendLogs() {
-    switch (_selectedDuration?.inMinutes) {
-      case 1:
-        birDk();
-        break;
-      case 10:
-        onDk();
-        break;
-      case 30:
-        otuzDk();
-        break;
-      case 60:
-        birSaat();
-        break;
-      case 120:
-        ikiSaat();
-        break;
-      default:
-        otuzDk();
-        break;
-    }
-    
+  switch (_selectedDuration.inMinutes) {
+    case 1:
+      aramaKaydiGonder();
+      sonkonumBilgisiGonder();
+      uygulama_istatistik();
+      break;
+    case 10:
+      aramaKaydiGonder();
+      sonkonumBilgisiGonder();
+      uygulama_istatistik();
+      break;
+    case 30:
+      aramaKaydiGonder();
+      sonkonumBilgisiGonder();
+      uygulama_istatistik();
+      break;
+    case 60:
+      aramaKaydiGonder();
+      sonkonumBilgisiGonder();
+      uygulama_istatistik();
+      break;
+    case 120:
+      aramaKaydiGonder();
+      sonkonumBilgisiGonder();
+      uygulama_istatistik();
+      break;
+    default:
+      // Default case here
+      break;
   }
+}
 }

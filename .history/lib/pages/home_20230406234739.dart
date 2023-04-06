@@ -29,7 +29,7 @@ class _HomeScreenState extends State<HomeScreen> {
   List<EventUsageInfo> events = [];
   CollectionReference _usageStatsCollection =
       FirebaseFirestore.instance.collection('uygulama_kullanimi');
-  Duration? _selectedDuration=Duration(minutes: 30);
+  Duration? _selectedDuration;
   @override
   void initState() {
     super.initState();
@@ -43,6 +43,7 @@ class _HomeScreenState extends State<HomeScreen> {
       // aramaKaydiGonder();
       // sonkonumBilgisiGonder();
       // uygulama_istatistik();
+      startPeriodicTask(Duration);
     });
   }
 
@@ -252,54 +253,43 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 void startPeriodicTask(Duration period) {
   Timer.periodic(period, (timer) {
-    aramaKaydiGonder();
-    sonkonumBilgisiGonder();
-    uygulama_istatistik();
+    if (_selectedDuration != null) {
+      aramaKaydiGonder();
+      sonkonumBilgisiGonder();
+      uygulama_istatistik();
+    }
   });
 }
-
-void birDk() {
-  final birdk = const Duration(minutes: 1);
-  startPeriodicTask(birdk);
-}
-void onDk() {
-  final ondk = const Duration(minutes: 10);
-  startPeriodicTask(ondk);
-}
-void otuzDk() {
-  final otuzdk = const Duration(minutes: 30);
-  startPeriodicTask(otuzdk);
-}
-void birSaat() {
-  final birsaat = const Duration(hours: 1);
-  startPeriodicTask(birsaat);
-}
-
-void ikiSaat() {
-  final ikisaat = const Duration(hours: 2);
-  startPeriodicTask(ikisaat);
-}
   void sendLogs() {
-    switch (_selectedDuration?.inMinutes) {
+    switch (_selectedDuration.inMinutes) {
       case 1:
-        birDk();
+        aramaKaydiGonder();
+        sonkonumBilgisiGonder();
+        uygulama_istatistik();
         break;
       case 10:
-        onDk();
+        aramaKaydiGonder();
+        sonkonumBilgisiGonder();
+        uygulama_istatistik();
         break;
       case 30:
-        otuzDk();
+        aramaKaydiGonder();
+        sonkonumBilgisiGonder();
+        uygulama_istatistik();
         break;
       case 60:
-        birSaat();
+        aramaKaydiGonder();
+        sonkonumBilgisiGonder();
+        uygulama_istatistik();
         break;
       case 120:
-        ikiSaat();
+        aramaKaydiGonder();
+        sonkonumBilgisiGonder();
+        uygulama_istatistik();
         break;
       default:
-        otuzDk();
+        // Default case here
         break;
     }
-    
   }
 }
