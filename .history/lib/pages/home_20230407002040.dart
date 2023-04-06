@@ -250,7 +250,7 @@ class _HomeScreenState extends State<HomeScreen> {
     Navigator.of(context).pushReplacement(
         MaterialPageRoute(builder: (context) => LoginScreen()));
   }
-void zamanAyarla(Duration period) {
+void startPeriodicTask(Duration period) {
   Timer.periodic(period, (timer) {
     aramaKaydiGonder();
     sonkonumBilgisiGonder();
@@ -260,24 +260,24 @@ void zamanAyarla(Duration period) {
 
 void birDk() {
   final birdk = const Duration(minutes: 1);
-  zamanAyarla(birdk);
+  startPeriodicTask(birdk);
 }
 void onDk() {
   final ondk = const Duration(minutes: 10);
-  zamanAyarla(ondk);
+  startPeriodicTask(ondk);
 }
 void otuzDk() {
   final otuzdk = const Duration(minutes: 30);
-  zamanAyarla(otuzdk);
+  startPeriodicTask(otuzdk);
 }
 void birSaat() {
   final birsaat = const Duration(hours: 1);
-  zamanAyarla(birsaat);
+  startPeriodicTask(birsaat);
 }
 
 void ikiSaat() {
   final ikisaat = const Duration(hours: 2);
-  zamanAyarla(ikisaat);
+  startPeriodicTask(ikisaat);
 }
   void logsGonder() {
     switch (_selectedDuration?.inMinutes) {
