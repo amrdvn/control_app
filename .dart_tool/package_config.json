@@ -3,9 +3,21 @@
   "packages": [
     {
       "name": "_flutterfire_internals",
-      "rootUri": "file:///C:/Users/Aykut/AppData/Local/Pub/Cache/hosted/pub.dev/_flutterfire_internals-1.1.0",
+      "rootUri": "file:///C:/Users/Aykut/AppData/Local/Pub/Cache/hosted/pub.dev/_flutterfire_internals-1.3.1",
       "packageUri": "lib/",
       "languageVersion": "2.18"
+    },
+    {
+      "name": "app_usage",
+      "rootUri": "file:///C:/Users/Aykut/AppData/Local/Pub/Cache/hosted/pub.dev/app_usage-2.1.1",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
+      "name": "appcheck",
+      "rootUri": "file:///C:/Users/Aykut/AppData/Local/Pub/Cache/hosted/pub.dev/appcheck-1.0.6",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
     },
     {
       "name": "args",
@@ -15,7 +27,7 @@
     },
     {
       "name": "async",
-      "rootUri": "file:///C:/Users/Aykut/AppData/Local/Pub/Cache/hosted/pub.dev/async-2.10.0",
+      "rootUri": "file:///C:/Users/Aykut/AppData/Local/Pub/Cache/hosted/pub.dev/async-2.11.0",
       "packageUri": "lib/",
       "languageVersion": "2.18"
     },
@@ -33,7 +45,13 @@
     },
     {
       "name": "characters",
-      "rootUri": "file:///C:/Users/Aykut/AppData/Local/Pub/Cache/hosted/pub.dev/characters-1.2.1",
+      "rootUri": "file:///C:/Users/Aykut/AppData/Local/Pub/Cache/hosted/pub.dev/characters-1.3.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
+      "name": "charcode",
+      "rootUri": "file:///C:/Users/Aykut/AppData/Local/Pub/Cache/hosted/pub.dev/charcode-1.3.1",
       "packageUri": "lib/",
       "languageVersion": "2.12"
     },
@@ -63,9 +81,9 @@
     },
     {
       "name": "collection",
-      "rootUri": "file:///C:/Users/Aykut/AppData/Local/Pub/Cache/hosted/pub.dev/collection-1.17.0",
+      "rootUri": "file:///C:/Users/Aykut/AppData/Local/Pub/Cache/hosted/pub.dev/collection-1.17.1",
       "packageUri": "lib/",
-      "languageVersion": "2.12"
+      "languageVersion": "2.18"
     },
     {
       "name": "contacts_service",
@@ -84,6 +102,18 @@
       "rootUri": "file:///C:/Users/Aykut/AppData/Local/Pub/Cache/hosted/pub.dev/dbus-0.7.8",
       "packageUri": "lib/",
       "languageVersion": "2.15"
+    },
+    {
+      "name": "device_apps",
+      "rootUri": "file:///C:/Users/Aykut/AppData/Local/Pub/Cache/hosted/pub.dev/device_apps-2.2.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
+      "name": "device_policy_manager",
+      "rootUri": "file:///C:/Users/Aykut/AppData/Local/Pub/Cache/hosted/pub.dev/device_policy_manager-0.0.1",
+      "packageUri": "lib/",
+      "languageVersion": "2.16"
     },
     {
       "name": "fake_async",
@@ -123,19 +153,37 @@
     },
     {
       "name": "firebase_core",
-      "rootUri": "file:///C:/Users/Aykut/AppData/Local/Pub/Cache/hosted/pub.dev/firebase_core-2.9.0",
+      "rootUri": "file:///C:/Users/Aykut/AppData/Local/Pub/Cache/hosted/pub.dev/firebase_core-2.13.0",
       "packageUri": "lib/",
       "languageVersion": "2.18"
     },
     {
       "name": "firebase_core_platform_interface",
-      "rootUri": "file:///C:/Users/Aykut/AppData/Local/Pub/Cache/hosted/pub.dev/firebase_core_platform_interface-4.6.0",
+      "rootUri": "file:///C:/Users/Aykut/AppData/Local/Pub/Cache/hosted/pub.dev/firebase_core_platform_interface-4.8.0",
       "packageUri": "lib/",
       "languageVersion": "2.18"
     },
     {
       "name": "firebase_core_web",
-      "rootUri": "file:///C:/Users/Aykut/AppData/Local/Pub/Cache/hosted/pub.dev/firebase_core_web-2.3.0",
+      "rootUri": "file:///C:/Users/Aykut/AppData/Local/Pub/Cache/hosted/pub.dev/firebase_core_web-2.5.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.18"
+    },
+    {
+      "name": "firebase_database",
+      "rootUri": "file:///C:/Users/Aykut/AppData/Local/Pub/Cache/hosted/pub.dev/firebase_database-10.2.1",
+      "packageUri": "lib/",
+      "languageVersion": "2.18"
+    },
+    {
+      "name": "firebase_database_platform_interface",
+      "rootUri": "file:///C:/Users/Aykut/AppData/Local/Pub/Cache/hosted/pub.dev/firebase_database_platform_interface-0.2.5+1",
+      "packageUri": "lib/",
+      "languageVersion": "2.18"
+    },
+    {
+      "name": "firebase_database_web",
+      "rootUri": "file:///C:/Users/Aykut/AppData/Local/Pub/Cache/hosted/pub.dev/firebase_database_web-0.2.3+1",
       "packageUri": "lib/",
       "languageVersion": "2.18"
     },
@@ -161,7 +209,43 @@
       "name": "flutter",
       "rootUri": "file:///C:/src/flutter/packages/flutter",
       "packageUri": "lib/",
+      "languageVersion": "3.0"
+    },
+    {
+      "name": "flutter_app_lock",
+      "rootUri": "file:///C:/Users/Aykut/AppData/Local/Pub/Cache/hosted/pub.dev/flutter_app_lock-3.0.0",
+      "packageUri": "lib/",
       "languageVersion": "2.17"
+    },
+    {
+      "name": "flutter_background_service",
+      "rootUri": "file:///C:/Users/Aykut/AppData/Local/Pub/Cache/hosted/pub.dev/flutter_background_service-2.4.6",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
+      "name": "flutter_background_service_android",
+      "rootUri": "file:///C:/Users/Aykut/AppData/Local/Pub/Cache/hosted/pub.dev/flutter_background_service_android-3.0.3",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
+      "name": "flutter_background_service_ios",
+      "rootUri": "file:///C:/Users/Aykut/AppData/Local/Pub/Cache/hosted/pub.dev/flutter_background_service_ios-2.4.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
+      "name": "flutter_background_service_platform_interface",
+      "rootUri": "file:///C:/Users/Aykut/AppData/Local/Pub/Cache/hosted/pub.dev/flutter_background_service_platform_interface-2.2.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.16"
+    },
+    {
+      "name": "flutter_launcher_name",
+      "rootUri": "file:///C:/Users/Aykut/AppData/Local/Pub/Cache/git/flutter_launcher_name-cd516a8e7483bfc7971ec9ac8f2d589e68247441/",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
     },
     {
       "name": "flutter_lints",
@@ -188,16 +272,34 @@
       "languageVersion": "2.12"
     },
     {
+      "name": "flutter_process_text",
+      "rootUri": "file:///C:/Users/Aykut/AppData/Local/Pub/Cache/hosted/pub.dev/flutter_process_text-1.1.2",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
+      "name": "flutter_screen_lock",
+      "rootUri": "file:///C:/Users/Aykut/AppData/Local/Pub/Cache/hosted/pub.dev/flutter_screen_lock-9.0.1",
+      "packageUri": "lib/",
+      "languageVersion": "2.17"
+    },
+    {
       "name": "flutter_test",
       "rootUri": "file:///C:/src/flutter/packages/flutter_test",
       "packageUri": "lib/",
-      "languageVersion": "2.17"
+      "languageVersion": "3.0"
     },
     {
       "name": "flutter_web_plugins",
       "rootUri": "file:///C:/src/flutter/packages/flutter_web_plugins",
       "packageUri": "lib/",
-      "languageVersion": "2.17"
+      "languageVersion": "3.0"
+    },
+    {
+      "name": "flutter_windowmanager",
+      "rootUri": "file:///C:/Users/Aykut/AppData/Local/Pub/Cache/hosted/pub.dev/flutter_windowmanager-0.2.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
     },
     {
       "name": "fluttertoast",
@@ -254,6 +356,12 @@
       "languageVersion": "2.12"
     },
     {
+      "name": "installed_apps",
+      "rootUri": "file:///C:/Users/Aykut/AppData/Local/Pub/Cache/hosted/pub.dev/installed_apps-1.3.1",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "intl",
       "rootUri": "file:///C:/Users/Aykut/AppData/Local/Pub/Cache/hosted/pub.dev/intl-0.17.0",
       "packageUri": "lib/",
@@ -261,9 +369,9 @@
     },
     {
       "name": "js",
-      "rootUri": "file:///C:/Users/Aykut/AppData/Local/Pub/Cache/hosted/pub.dev/js-0.6.5",
+      "rootUri": "file:///C:/Users/Aykut/AppData/Local/Pub/Cache/hosted/pub.dev/js-0.6.7",
       "packageUri": "lib/",
-      "languageVersion": "2.16"
+      "languageVersion": "2.19"
     },
     {
       "name": "lints",
@@ -272,8 +380,14 @@
       "languageVersion": "2.17"
     },
     {
+      "name": "logging",
+      "rootUri": "file:///C:/Users/Aykut/AppData/Local/Pub/Cache/hosted/pub.dev/logging-1.2.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.19"
+    },
+    {
       "name": "matcher",
-      "rootUri": "file:///C:/Users/Aykut/AppData/Local/Pub/Cache/hosted/pub.dev/matcher-0.12.13",
+      "rootUri": "file:///C:/Users/Aykut/AppData/Local/Pub/Cache/hosted/pub.dev/matcher-0.12.15",
       "packageUri": "lib/",
       "languageVersion": "2.18"
     },
@@ -285,15 +399,81 @@
     },
     {
       "name": "meta",
-      "rootUri": "file:///C:/Users/Aykut/AppData/Local/Pub/Cache/hosted/pub.dev/meta-1.8.0",
+      "rootUri": "file:///C:/Users/Aykut/AppData/Local/Pub/Cache/hosted/pub.dev/meta-1.9.1",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
+      "name": "mime",
+      "rootUri": "file:///C:/Users/Aykut/AppData/Local/Pub/Cache/hosted/pub.dev/mime-1.0.4",
+      "packageUri": "lib/",
+      "languageVersion": "2.18"
+    },
+    {
+      "name": "package_info",
+      "rootUri": "file:///C:/Users/Aykut/AppData/Local/Pub/Cache/hosted/pub.dev/package_info-2.0.2",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
+      "name": "packages_info",
+      "rootUri": "file:///C:/Users/Aykut/AppData/Local/Pub/Cache/hosted/pub.dev/packages_info-0.0.1-dev.1",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
+      "name": "packages_info_android",
+      "rootUri": "file:///C:/Users/Aykut/AppData/Local/Pub/Cache/hosted/pub.dev/packages_info_android-0.0.1-dev.1",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
+      "name": "packages_info_platform_interface",
+      "rootUri": "file:///C:/Users/Aykut/AppData/Local/Pub/Cache/hosted/pub.dev/packages_info_platform_interface-0.0.1-dev.1",
       "packageUri": "lib/",
       "languageVersion": "2.12"
     },
     {
       "name": "path",
-      "rootUri": "file:///C:/Users/Aykut/AppData/Local/Pub/Cache/hosted/pub.dev/path-1.8.2",
+      "rootUri": "file:///C:/Users/Aykut/AppData/Local/Pub/Cache/hosted/pub.dev/path-1.8.3",
       "packageUri": "lib/",
       "languageVersion": "2.12"
+    },
+    {
+      "name": "path_provider",
+      "rootUri": "file:///C:/Users/Aykut/AppData/Local/Pub/Cache/hosted/pub.dev/path_provider-2.0.15",
+      "packageUri": "lib/",
+      "languageVersion": "2.17"
+    },
+    {
+      "name": "path_provider_android",
+      "rootUri": "file:///C:/Users/Aykut/AppData/Local/Pub/Cache/hosted/pub.dev/path_provider_android-2.0.27",
+      "packageUri": "lib/",
+      "languageVersion": "2.17"
+    },
+    {
+      "name": "path_provider_foundation",
+      "rootUri": "file:///C:/Users/Aykut/AppData/Local/Pub/Cache/hosted/pub.dev/path_provider_foundation-2.2.3",
+      "packageUri": "lib/",
+      "languageVersion": "2.18"
+    },
+    {
+      "name": "path_provider_linux",
+      "rootUri": "file:///C:/Users/Aykut/AppData/Local/Pub/Cache/hosted/pub.dev/path_provider_linux-2.1.11",
+      "packageUri": "lib/",
+      "languageVersion": "2.18"
+    },
+    {
+      "name": "path_provider_platform_interface",
+      "rootUri": "file:///C:/Users/Aykut/AppData/Local/Pub/Cache/hosted/pub.dev/path_provider_platform_interface-2.0.6",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
+      "name": "path_provider_windows",
+      "rootUri": "file:///C:/Users/Aykut/AppData/Local/Pub/Cache/hosted/pub.dev/path_provider_windows-2.1.6",
+      "packageUri": "lib/",
+      "languageVersion": "2.17"
     },
     {
       "name": "permission_handler",
@@ -357,7 +537,13 @@
     },
     {
       "name": "rflutter_alert",
-      "rootUri": "file:///C:/Users/Aykut/AppData/Local/Pub/Cache/hosted/pub.dev/rflutter_alert-2.0.4",
+      "rootUri": "file:///C:/Users/Aykut/AppData/Local/Pub/Cache/hosted/pub.dev/rflutter_alert-2.0.7",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
+      "name": "rikulo_commons",
+      "rootUri": "file:///C:/Users/Aykut/AppData/Local/Pub/Cache/hosted/pub.dev/rikulo_commons-5.2.2",
       "packageUri": "lib/",
       "languageVersion": "2.12"
     },
@@ -365,7 +551,7 @@
       "name": "sky_engine",
       "rootUri": "file:///C:/src/flutter/bin/cache/pkg/sky_engine",
       "packageUri": "lib/",
-      "languageVersion": "2.12"
+      "languageVersion": "3.0"
     },
     {
       "name": "source_span",
@@ -378,6 +564,12 @@
       "rootUri": "file:///C:/Users/Aykut/AppData/Local/Pub/Cache/hosted/pub.dev/stack_trace-1.11.0",
       "packageUri": "lib/",
       "languageVersion": "2.18"
+    },
+    {
+      "name": "stream",
+      "rootUri": "file:///C:/Users/Aykut/AppData/Local/Pub/Cache/hosted/pub.dev/stream-3.0.3",
+      "packageUri": "lib/",
+      "languageVersion": "2.13"
     },
     {
       "name": "stream_channel",
@@ -399,7 +591,7 @@
     },
     {
       "name": "test_api",
-      "rootUri": "file:///C:/Users/Aykut/AppData/Local/Pub/Cache/hosted/pub.dev/test_api-0.4.16",
+      "rootUri": "file:///C:/Users/Aykut/AppData/Local/Pub/Cache/hosted/pub.dev/test_api-0.5.1",
       "packageUri": "lib/",
       "languageVersion": "2.18"
     },
@@ -434,6 +626,12 @@
       "languageVersion": "2.14"
     },
     {
+      "name": "win32",
+      "rootUri": "file:///C:/Users/Aykut/AppData/Local/Pub/Cache/hosted/pub.dev/win32-4.1.4",
+      "packageUri": "lib/",
+      "languageVersion": "2.17"
+    },
+    {
       "name": "xdg_directories",
       "rootUri": "file:///C:/Users/Aykut/AppData/Local/Pub/Cache/hosted/pub.dev/xdg_directories-0.2.0+3",
       "packageUri": "lib/",
@@ -446,13 +644,19 @@
       "languageVersion": "2.18"
     },
     {
+      "name": "yaml",
+      "rootUri": "file:///C:/Users/Aykut/AppData/Local/Pub/Cache/hosted/pub.dev/yaml-3.1.2",
+      "packageUri": "lib/",
+      "languageVersion": "2.19"
+    },
+    {
       "name": "control_app",
       "rootUri": "../",
       "packageUri": "lib/",
       "languageVersion": "2.19"
     }
   ],
-  "generated": "2023-04-11T23:14:27.358156Z",
+  "generated": "2023-06-15T01:04:07.487870Z",
   "generator": "pub",
-  "generatorVersion": "2.19.5"
+  "generatorVersion": "3.0.3"
 }

@@ -1,0 +1,5 @@
+<resources>
+    <string name="device_admin_description">Device Admin Description</string>
+    <string name="app_name">My Control App</string>
+    ...
+</resources>
