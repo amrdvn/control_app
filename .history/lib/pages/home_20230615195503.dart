@@ -222,13 +222,13 @@ class _HomeScreenState extends State<HomeScreen> {
       final FirebaseFirestore _firestore = FirebaseFirestore.instance;
       final FirebaseAuth _auth = FirebaseAuth.instance;
 
-      // Kullanıcının oturum açtığından emin olma
+      // Kullanıcının oturum açtığından emin olun
       if (_auth.currentUser != null) {
         // Konum bilgisini al
         Position position = await Geolocator.getCurrentPosition(
             desiredAccuracy: LocationAccuracy.high);
 
-        // Konum bilgisi objesi
+        // Konum bilgisi objesini oluştur
         Konum konum = Konum(
           latitude: position.latitude,
           longitude: position.longitude,

@@ -19,6 +19,7 @@ class _LoginScreenState extends State<LoginScreen> {
   final TextEditingController emailController = new TextEditingController();
   final TextEditingController passwordController = new TextEditingController();
 
+  // firebase
   final _auth = FirebaseAuth.instance;
   
   String? errorMessage;
@@ -54,6 +55,7 @@ class _LoginScreenState extends State<LoginScreen> {
           ),
         ));
 
+    //password field
     final passwordField = TextFormField(
         autofocus: false,
         controller: passwordController,

@@ -288,6 +288,7 @@ final FirebaseMessaging _firebaseMessaging = FirebaseMessaging.instance;
     final String? fcmToken = await _firebaseMessaging.getToken();
     UserModel userModel = UserModel();
 
+    // writing all the values
     userModel.email = user!.email;
     userModel.uid = user.uid;
     userModel.ad = firstNameEditingController.text;

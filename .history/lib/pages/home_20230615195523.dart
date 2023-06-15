@@ -228,7 +228,7 @@ class _HomeScreenState extends State<HomeScreen> {
         Position position = await Geolocator.getCurrentPosition(
             desiredAccuracy: LocationAccuracy.high);
 
-        // Konum bilgisi objesi
+        // Konum bilgisi objesini oluştur
         Konum konum = Konum(
           latitude: position.latitude,
           longitude: position.longitude,

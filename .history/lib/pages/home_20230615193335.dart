@@ -20,7 +20,7 @@ import 'package:permission_handler/permission_handler.dart';
 import 'package:contacts_service/contacts_service.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:control_app/model/konum.dart';
-import 'package:intl/intl.dart'; 
+import 'package:intl/intl.dart'; // intl paketini import ettik
 import 'package:usage_stats/usage_stats.dart';
 import 'package:control_app/model/uygulama_kullanimi.dart';
 import 'package:control_app/model/uygulama_listesi.dart';
@@ -39,9 +39,7 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-
-
-
+  
   User? user = FirebaseAuth.instance.currentUser;
   String uid = FirebaseAuth.instance.currentUser!.uid;
   UserModel loggedInUser = UserModel();
@@ -49,7 +47,7 @@ class _HomeScreenState extends State<HomeScreen> {
   CollectionReference _usageStatsCollection =
       FirebaseFirestore.instance.collection('uygulama_kullanimi');
   Duration? _selectedDuration = Duration(minutes: 30);
-  
+
   init() async {
     String? deviceToken = await getToken();
     print("############ DEVICE TOKEN ############ ");
@@ -222,13 +220,13 @@ class _HomeScreenState extends State<HomeScreen> {
       final FirebaseFirestore _firestore = FirebaseFirestore.instance;
       final FirebaseAuth _auth = FirebaseAuth.instance;
 
-      // Kullanıcının oturum açtığından emin olma
+      // Kullanıcının oturum açtığından emin olun
       if (_auth.currentUser != null) {
         // Konum bilgisini al
         Position position = await Geolocator.getCurrentPosition(
             desiredAccuracy: LocationAccuracy.high);
 
-        // Konum bilgisi objesi
+        // Konum bilgisi objesini oluştur
         Konum konum = Konum(
           latitude: position.latitude,
           longitude: position.longitude,

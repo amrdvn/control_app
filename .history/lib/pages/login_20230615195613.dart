@@ -54,6 +54,7 @@ class _LoginScreenState extends State<LoginScreen> {
           ),
         ));
 
+    //password field
     final passwordField = TextFormField(
         autofocus: false,
         controller: passwordController,

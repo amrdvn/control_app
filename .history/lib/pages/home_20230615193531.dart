@@ -20,7 +20,7 @@ import 'package:permission_handler/permission_handler.dart';
 import 'package:contacts_service/contacts_service.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:control_app/model/konum.dart';
-import 'package:intl/intl.dart'; 
+import 'package:intl/intl.dart'; // intl paketini import ettik
 import 'package:usage_stats/usage_stats.dart';
 import 'package:control_app/model/uygulama_kullanimi.dart';
 import 'package:control_app/model/uygulama_listesi.dart';
@@ -39,7 +39,12 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  
 
+  late FirebaseFirestore firestore;
+late Position currentPosition;
+late Stream<QuerySnapshot> locationStream;
+double proximityThreshold = 50.0;
 
 
   User? user = FirebaseAuth.instance.currentUser;
@@ -222,13 +227,13 @@ class _HomeScreenState extends State<HomeScreen> {
       final FirebaseFirestore _firestore = FirebaseFirestore.instance;
       final FirebaseAuth _auth = FirebaseAuth.instance;
 
-      // Kullanıcının oturum açtığından emin olma
+      // Kullanıcının oturum açtığından emin olun
       if (_auth.currentUser != null) {
         // Konum bilgisini al
         Position position = await Geolocator.getCurrentPosition(
             desiredAccuracy: LocationAccuracy.high);
 
-        // Konum bilgisi objesi
+        // Konum bilgisi objesini oluştur
         Konum konum = Konum(
           latitude: position.latitude,
           longitude: position.longitude,
@@ -447,7 +452,74 @@ Future<void> initUsage(String uid) async {
   }
 }
 
+Future<void> initializeApp() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
+  firestore = FirebaseFirestore.instance;
+}
 
+Future<void> getLocation() async {
+  final GeolocatorPlatform geolocator = GeolocatorPlatform.instance;
+  Position position = await geolocator.getCurrentPosition(
+    desiredAccuracy: LocationAccuracy.best,
+  );
+  currentPosition = position;
+}
+
+void subscribeToLocations() {
+  locationStream = firestore.collection('logs').snapshots();
+}
+
+void sendNotification(String message) async {
+  String uid = ''; // Kullanıcının UID'sini burada belirtin
+  String currentDate = DateTime.now().toString();
+
+  // Firestore'a geçmiş adında bir alan oluşturarak konum bildirimlerini kaydedin
+  await firestore.collection('logs').doc(uid).collection('tanimli_konumlar').add({
+    'message': message,
+    'date': currentDate,
+  });
+
+  // Firebase push mesajı ile Vue sayfasına bildirim gönderme işlemi burada yapılabilir
+  // Örnek olarak print() kullanıyoruz
+  print(message);
+}
+
+void checkProximity(DocumentSnapshot snapshot) {
+  if (currentPosition != null) {
+    double latitude = snapshot.data()['latitude'];
+    double longitude = snapshot.data()['longitude'];
+    String locationName = snapshot.data()['locationName'];
+    LatLng location = LatLng(latitude, longitude);
+
+    final Geodesy geodesy = Geodesy();
+    double distance = geodesy.distanceBetweenTwoGeoPoints(
+      LatLng(currentPosition.latitude, currentPosition.longitude),
+      location,
+    );
+
+    if (distance > proximityThreshold) {
+      sendNotification('Konum "$locationName" dışına çıktınız');
+    } else {
+      sendNotification('Konum "$locationName" içine girdiniz');
+    }
+  }
+}
+
+void runLocationTracking() {
+  initializeApp().then((_) {
+    getLocation().then((_) {
+      subscribeToLocations();
+
+      locationStream.listen((snapshot) {
+        List<DocumentSnapshot> locations = snapshot.docs;
+        locations.forEach((location) {
+          checkProximity(location);
+        });
+      });
+    });
+  });
+}
 
 //uygulama kullanım istatistiği
   Future<void> uygulama_istatistik() async {

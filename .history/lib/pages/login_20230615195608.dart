@@ -19,13 +19,16 @@ class _LoginScreenState extends State<LoginScreen> {
   final TextEditingController emailController = new TextEditingController();
   final TextEditingController passwordController = new TextEditingController();
 
+  // firebase
   final _auth = FirebaseAuth.instance;
   
+  // string for displaying the error Message
   String? errorMessage;
 
   @override
   Widget build(BuildContext context) {
     
+    //email field
     final emailField = TextFormField(
         autofocus: false,
         controller: emailController,
@@ -54,6 +57,7 @@ class _LoginScreenState extends State<LoginScreen> {
           ),
         ));
 
+    //password field
     final passwordField = TextFormField(
         autofocus: false,
         controller: passwordController,
